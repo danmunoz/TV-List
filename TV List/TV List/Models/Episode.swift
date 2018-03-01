@@ -23,6 +23,7 @@ class Episode: Object, Mappable{
     @objc dynamic var runtime: Int = 0
     @objc dynamic var image: String?
     @objc dynamic var summary: String?
+    @objc dynamic var show: Show?
     
     required convenience init?(map: Map) {
         self.init()
@@ -55,5 +56,6 @@ class Episode: Object, Mappable{
         runtime <- map["runtime"]
         image <- map["image"]
         summary <- map["summary"]
+        show <- map["show"]
     }
 }

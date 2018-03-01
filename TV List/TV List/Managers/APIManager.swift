@@ -32,4 +32,15 @@ class APIManager {
             }
         }
     }
+    
+    static func getSchedule(success:@escaping (_ episode: [Episode]?)->(), failure:@escaping (_ error: Error?)->()) {
+        Alamofire.request(Constants.API.Schedule).responseArray { (response: DataResponse<[Episode]>) in
+            if let error = response.error {
+                failure(error)
+            }
+            else {
+                success(response.result.value)
+            }
+        }
+    }
 }
