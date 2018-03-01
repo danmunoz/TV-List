@@ -13,5 +13,8 @@ struct Constants {
         static func Show(showId: String) -> String {
             return "http://api.tvmaze.com/shows/\(showId)"
         }
+        static func Episode(episodeId: String) -> String {
+            return "http://api.tvmaze.com/episodes/\(episodeId)"
+        }
     }
 }

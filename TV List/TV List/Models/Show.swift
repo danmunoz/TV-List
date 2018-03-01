@@ -62,7 +62,7 @@ class Show: Object, Mappable{
             }
             return nil
         })
-        premiered <- (map["premiered"], transform)//
+        premiered <- (map["premiered"], transform)
         officialSite <- map["officialSite"]
         schedule <- map["schedule"]
         ratingAverage <- map["rating.average"]
