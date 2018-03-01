@@ -15,6 +15,10 @@
 		6E3590C12047629B007E15D5 /* Episode.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6E3590C02047629B007E15D5 /* Episode.swift */; };
 		6E3590C3204762A7007E15D5 /* Show.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6E3590C2204762A7007E15D5 /* Show.swift */; };
 		6E3590C52047633E007E15D5 /* Network.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6E3590C42047633E007E15D5 /* Network.swift */; };
+		6E3590C820484A86007E15D5 /* APIManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6E3590C720484A86007E15D5 /* APIManager.swift */; };
+		6E3590CB20484BBA007E15D5 /* Constants.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6E3590CA20484BBA007E15D5 /* Constants.swift */; };
+		6E3590CD2048546B007E15D5 /* Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6E3590CC2048546B007E15D5 /* Extensions.swift */; };
+		6E46E1D620485A2500BE538E /* DBManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6E46E1D520485A2500BE538E /* DBManager.swift */; };
 		742A872FA9408170E29F4497 /* Pods_TV_List.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 2BAC51C2AB00DF0A2E3E722C /* Pods_TV_List.framework */; };
 /* End PBXBuildFile section */
 
@@ -30,6 +34,10 @@
 		6E3590C02047629B007E15D5 /* Episode.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Episode.swift; sourceTree = "<group>"; };
 		6E3590C2204762A7007E15D5 /* Show.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Show.swift; sourceTree = "<group>"; };
 		6E3590C42047633E007E15D5 /* Network.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Network.swift; sourceTree = "<group>"; };
+		6E3590C720484A86007E15D5 /* APIManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = APIManager.swift; sourceTree = "<group>"; };
+		6E3590CA20484BBA007E15D5 /* Constants.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Constants.swift; sourceTree = "<group>"; };
+		6E3590CC2048546B007E15D5 /* Extensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Extensions.swift; sourceTree = "<group>"; };
+		6E46E1D520485A2500BE538E /* DBManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DBManager.swift; sourceTree = "<group>"; };
 		977E9560CE427F09A5841326 /* Pods-TV List.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-TV List.release.xcconfig"; path = "Pods/Target Support Files/Pods-TV List/Pods-TV List.release.xcconfig"; sourceTree = "<group>"; };
 		BAA9390FE6E8B44A7C08B96D /* Pods-TV List.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-TV List.debug.xcconfig"; path = "Pods/Target Support Files/Pods-TV List/Pods-TV List.debug.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -67,6 +75,8 @@
 		6E3590AC20476055007E15D5 /* TV List */ = {
 			isa = PBXGroup;
 			children = (
+				6E3590C920484BAF007E15D5 /* Utils */,
+				6E3590C620484A73007E15D5 /* Managers */,
 				6E3590BF204761A0007E15D5 /* Models */,
 				6E3590AD20476055007E15D5 /* AppDelegate.swift */,
 				6E3590AF20476055007E15D5 /* ViewController.swift */,
@@ -86,6 +96,24 @@
 				6E3590C02047629B007E15D5 /* Episode.swift */,
 			);
 			path = Models;
+			sourceTree = "<group>";
+		};
+		6E3590C620484A73007E15D5 /* Managers */ = {
+			isa = PBXGroup;
+			children = (
+				6E3590C720484A86007E15D5 /* APIManager.swift */,
+				6E46E1D520485A2500BE538E /* DBManager.swift */,
+			);
+			path = Managers;
+			sourceTree = "<group>";
+		};
+		6E3590C920484BAF007E15D5 /* Utils */ = {
+			isa = PBXGroup;
+			children = (
+				6E3590CA20484BBA007E15D5 /* Constants.swift */,
+				6E3590CC2048546B007E15D5 /* Extensions.swift */,
+			);
+			path = Utils;
 			sourceTree = "<group>";
 		};
 		96814FB7CF3BB5940644E90E /* Pods */ = {
@@ -187,6 +215,7 @@
 				"${BUILT_PRODUCTS_DIR}/AlamofireObjectMapper/AlamofireObjectMapper.framework",
 				"${BUILT_PRODUCTS_DIR}/ObjectMapper/ObjectMapper.framework",
 				"${BUILT_PRODUCTS_DIR}/ObjectMapper+Realm/ObjectMapper_Realm.framework",
+				"${BUILT_PRODUCTS_DIR}/ObjectMapperAdditions/ObjectMapperAdditions.framework",
 				"${BUILT_PRODUCTS_DIR}/Realm/Realm.framework",
 				"${BUILT_PRODUCTS_DIR}/RealmSwift/RealmSwift.framework",
 			);
@@ -196,6 +225,7 @@
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/AlamofireObjectMapper.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/ObjectMapper.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/ObjectMapper_Realm.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/ObjectMapperAdditions.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/Realm.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/RealmSwift.framework",
 			);
@@ -244,9 +274,13 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				6E3590C820484A86007E15D5 /* APIManager.swift in Sources */,
 				6E3590C52047633E007E15D5 /* Network.swift in Sources */,
 				6E3590B020476055007E15D5 /* ViewController.swift in Sources */,
+				6E3590CD2048546B007E15D5 /* Extensions.swift in Sources */,
+				6E46E1D620485A2500BE538E /* DBManager.swift in Sources */,
 				6E3590C12047629B007E15D5 /* Episode.swift in Sources */,
+				6E3590CB20484BBA007E15D5 /* Constants.swift in Sources */,
 				6E3590C3204762A7007E15D5 /* Show.swift in Sources */,
 				6E3590AE20476055007E15D5 /* AppDelegate.swift in Sources */,
 			);
