@@ -22,3 +22,27 @@ extension Date {
         return dateFormatter.date(from: dateString)
     }
 }
+//MARK: - Data Extension
+extension Data {
+    var htmlToAttributedString: NSAttributedString? {
+        do {
+            return try NSAttributedString(data: self, options: [.documentType: NSAttributedString.DocumentType.html, .characterEncoding: String.Encoding.utf8.rawValue], documentAttributes: nil)
+        } catch {
+            print("error:", error)
+            return  nil
+        }
+    }
+    var htmlToString: String {
+        return htmlToAttributedString?.string ?? ""
+    }
+}
+
+//MARK: - String Extension
+extension String {
+    var htmlToAttributedString: NSAttributedString? {
+        return Data(utf8).htmlToAttributedString
+    }
+    var htmlToString: String {
+        return htmlToAttributedString?.string ?? ""
+    }
+}
