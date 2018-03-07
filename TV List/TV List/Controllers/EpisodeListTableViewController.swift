@@ -12,6 +12,7 @@ class EpisodeListTableViewController: UITableViewController {
     
     var episodesArray = [Episode]()
     var selectedEpisode: Episode?
+    
 
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -19,6 +20,14 @@ class EpisodeListTableViewController: UITableViewController {
         tableView.estimatedRowHeight = 150
         fetchEpisodes()
         setupUI()
+        refreshControl = UIRefreshControl()
+        let string = "Pull to refresh"
+        let attributtedText = NSMutableAttributedString.init(string: string)
+        let range = (string as NSString).range(of: string)
+        attributtedText.addAttribute(NSAttributedStringKey.foregroundColor, value: UIColor.white , range: range)
+        refreshControl?.attributedTitle = attributtedText
+        refreshControl?.addTarget(self, action: #selector(handleRefresh), for: UIControlEvents.valueChanged)
+        
     }
 
     override func didReceiveMemoryWarning() {
@@ -26,6 +35,11 @@ class EpisodeListTableViewController: UITableViewController {
     }
     
     // MARK: - Functions
+    
+    @objc func handleRefresh() {
+        self.fetchEpisodes()
+        refreshControl?.endRefreshing()
+    }
     
     fileprivate func fetchEpisodes() {
         APIManager.getSchedule(success: { (episodes) in
@@ -42,6 +56,10 @@ class EpisodeListTableViewController: UITableViewController {
     
     fileprivate func setupUI() {
         title = "Schedule"
+        if #available(iOS 11.0, *) {
+            self.navigationController?.navigationBar.prefersLargeTitles = true
+            navigationItem.hidesSearchBarWhenScrolling = true
+        }
     }
 
     // MARK: - Table view data source

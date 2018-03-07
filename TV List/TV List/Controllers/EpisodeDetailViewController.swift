@@ -34,6 +34,7 @@ class EpisodeDetailViewController: UIViewController {
     
     // MARK: - Functions
     fileprivate func setupUI() {
+        title = "Episode Info"
         showNameLabel.text = episode?.show?.name
         episodeNameLabel.text = episode?.name
         episodeNumberLabel.text = "Ep.: " + String((episode?.number)!)
