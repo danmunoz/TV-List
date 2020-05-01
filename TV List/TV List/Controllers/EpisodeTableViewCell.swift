@@ -24,17 +24,17 @@ class EpisodeTableViewCell: UITableViewCell {
     
     override func prepareForReuse() {
         super.prepareForReuse()
-        episodeImageView.af_cancelImageRequest()
-        episodeImageView.image = nil
+        self.episodeImageView.af_cancelImageRequest()
+        self.episodeImageView.image = nil
     }
     
     func setupUI() {
-        showNameLabel.text = episode?.show?.name
-        episodeNameLabel.text = episode?.name
-        guard let episode = episode else {
+        self.showNameLabel.text = self.episode?.show?.name
+        self.episodeNameLabel.text = self.episode?.name
+        guard let episode = self.episode else {
             return
         }
-        episodeImageView.af_setImage(withURL: URL(string: (episode.show?.image?.medium)!)!)
+        self.episodeImageView.af_setImage(withURL: URL(string: (episode.show?.image?.medium)!)!)
     }
 
     override func setSelected(_ selected: Bool, animated: Bool) {

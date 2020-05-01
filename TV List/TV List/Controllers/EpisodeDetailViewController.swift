@@ -9,7 +9,7 @@
 import UIKit
 import AlamofireImage
 
-class EpisodeDetailViewController: UIViewController {
+final class EpisodeDetailViewController: UIViewController {
 
     var episode: Episode?
     
@@ -28,22 +28,18 @@ class EpisodeDetailViewController: UIViewController {
         setupUI()
     }
 
-    override func didReceiveMemoryWarning() {
-        super.didReceiveMemoryWarning()
-    }
-    
     // MARK: - Functions
-    fileprivate func setupUI() {
-        title = "Episode Info"
-        showNameLabel.text = episode?.show?.name
-        episodeNameLabel.text = episode?.name
-        episodeNumberLabel.text = "Ep.: " + String((episode?.number)!)
-        seasonNumberLabel.text = "Season: " + String((episode?.season)!)
-        episodeImageView.af_setImage(withURL: URL(string: (episode?.show?.image?.medium)!)!)
-        episodeSummaryLabel.text = episode?.summary?.htmlToString
-        timeLabel.text = episode?.airTime
-        runningTimeLabel.text = String((episode?.runtime)!)
-        networkLabel.text = episode?.show?.network?.name
+    private func setupUI() {
+        self.title = "Episode Info"
+        self.showNameLabel.text = self.episode?.show?.name
+        self.episodeNameLabel.text = self.episode?.name
+        self.episodeNumberLabel.text = "Ep.: " + String((self.episode?.number)!)
+        self.seasonNumberLabel.text = "Season: " + String((self.episode?.season)!)
+        self.episodeImageView.af_setImage(withURL: URL(string: (self.episode?.show?.image?.medium)!)!)
+        self.episodeSummaryLabel.text = self.episode?.summary?.htmlToString
+        self.timeLabel.text = self.episode?.airTime
+        self.runningTimeLabel.text = String((self.episode?.runtime)!)
+        self.networkLabel.text = self.episode?.show?.network?.name
     }
 
     @IBAction func showDetailAction(_ sender: UIButton) {
@@ -54,8 +50,8 @@ class EpisodeDetailViewController: UIViewController {
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         if segue.identifier == "ShowDetailSegue" {
             let vc = segue.destination as! ShowDetailViewController
-            vc.show = episode?.show
-            vc.imagePlaceholder = episodeImageView.image
+            vc.show = self.episode?.show
+            vc.imagePlaceholder = self.episodeImageView.image
         }
     }
 

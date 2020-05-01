@@ -8,7 +8,7 @@
 
 import UIKit
 
-class ShowDetailViewController: UIViewController {
+final class ShowDetailViewController: UIViewController {
     
     var show: Show?
     var imagePlaceholder: UIImage?
@@ -25,19 +25,15 @@ class ShowDetailViewController: UIViewController {
         setupUI()
     }
 
-    override func didReceiveMemoryWarning() {
-        super.didReceiveMemoryWarning()
-    }
-    
     //MARK: - Functions
-    fileprivate func setupUI() {
-        title = "Show Detail"
-        showNameLabel.text = show?.name
-        showImageView.af_setImage(withURL: URL(string: (show?.image?.original)!)!, placeholderImage: imagePlaceholder, filter: nil, progress: nil, progressQueue: DispatchQueue.main, imageTransition: UIImageView.ImageTransition.crossDissolve(1), runImageTransitionIfCached: false, completion: nil)
-        showSummaryLabel.text = show?.summary?.htmlToString
-        showTypeLabel.text = show?.type
-        showPremiereLabel.text = show?.premiered?.getString(format: "MM/dd/yyyy")
-        showDaysLabel.text = show?.schedule?.days.joined(separator: ", ")
+    private func setupUI() {
+        self.title = "Show Detail"
+        self.showNameLabel.text = self.show?.name
+        self.showImageView.af_setImage(withURL: URL(string: (self.show?.image?.original)!)!, placeholderImage: self.imagePlaceholder, filter: nil, progress: nil, progressQueue: DispatchQueue.main, imageTransition: UIImageView.ImageTransition.crossDissolve(1), runImageTransitionIfCached: false, completion: nil)
+        self.showSummaryLabel.text = self.show?.summary?.htmlToString
+        self.showTypeLabel.text = self.show?.type
+        self.showPremiereLabel.text = self.show?.premiered?.getString(format: "MM/dd/yyyy")
+        self.showDaysLabel.text = self.show?.schedule?.days.joined(separator: ", ")
     }
 
 }

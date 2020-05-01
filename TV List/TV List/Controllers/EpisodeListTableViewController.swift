@@ -8,32 +8,27 @@
 
 import UIKit
 
-class EpisodeListTableViewController: UITableViewController {
+final class EpisodeListTableViewController: UITableViewController {
     
-    var episodesArray = [Episode]()
-    var selectedEpisode: Episode?
-    
+    private var episodesArray = [Episode]()
+    private var selectedEpisode: Episode?
 
     override func viewDidLoad() {
         super.viewDidLoad()
-        tableView.rowHeight = UITableViewAutomaticDimension
-        tableView.estimatedRowHeight = 150
-        fetchEpisodes()
-        setupUI()
-        refreshControl = UIRefreshControl()
+        self.tableView.rowHeight = UITableViewAutomaticDimension
+        self.tableView.estimatedRowHeight = 150
+        self.fetchEpisodes()
+        self.setupUI()
+        self.refreshControl = UIRefreshControl()
         let string = "Pull to refresh"
         let attributtedText = NSMutableAttributedString.init(string: string)
         let range = (string as NSString).range(of: string)
         attributtedText.addAttribute(NSAttributedStringKey.foregroundColor, value: UIColor.white , range: range)
-        refreshControl?.attributedTitle = attributtedText
-        refreshControl?.addTarget(self, action: #selector(handleRefresh), for: UIControlEvents.valueChanged)
+        self.refreshControl?.attributedTitle = attributtedText
+        self.refreshControl?.addTarget(self, action: #selector(self.handleRefresh), for: UIControlEvents.valueChanged)
         
     }
 
-    override func didReceiveMemoryWarning() {
-        super.didReceiveMemoryWarning()
-    }
-    
     // MARK: - Functions
     
     @objc func handleRefresh() {
@@ -64,18 +59,14 @@ class EpisodeListTableViewController: UITableViewController {
 
     // MARK: - Table view data source
 
-    override func numberOfSections(in tableView: UITableView) -> Int {
-        return 1
-    }
-
     override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return episodesArray.count
+        return self.episodesArray.count
     }
 
     
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: "EpisodeCell", for: indexPath) as! EpisodeTableViewCell
-        let episode = episodesArray[indexPath.row]
+        let episode = self.episodesArray[indexPath.row]
         cell.episode = episode
         cell.setupUI()
         return cell
@@ -83,7 +74,7 @@ class EpisodeListTableViewController: UITableViewController {
     
     override func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         tableView.deselectRow(at: indexPath, animated: true)
-        selectedEpisode = episodesArray[indexPath.row]
+        self.selectedEpisode = episodesArray[indexPath.row]
         performSegue(withIdentifier: "EpisodeDetailSegue", sender: self)
     }
 
@@ -92,7 +83,7 @@ class EpisodeListTableViewController: UITableViewController {
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         if segue.identifier == "EpisodeDetailSegue" {
             let vc = segue.destination as! EpisodeDetailViewController
-            vc.episode = selectedEpisode
+            vc.episode = self.selectedEpisode
         }
     }
     

@@ -17,7 +17,6 @@
 		6E3590C820484A86007E15D5 /* APIManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6E3590C720484A86007E15D5 /* APIManager.swift */; };
 		6E3590CB20484BBA007E15D5 /* Constants.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6E3590CA20484BBA007E15D5 /* Constants.swift */; };
 		6E3590CD2048546B007E15D5 /* Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6E3590CC2048546B007E15D5 /* Extensions.swift */; };
-		6E46E1D620485A2500BE538E /* DBManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6E46E1D520485A2500BE538E /* DBManager.swift */; };
 		6E46E1DC2048B75C00BE538E /* EpisodeListTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6E46E1DB2048B75C00BE538E /* EpisodeListTableViewController.swift */; };
 		6E46E1E32048B7F100BE538E /* EpisodeDetailViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6E46E1E22048B7F100BE538E /* EpisodeDetailViewController.swift */; };
 		6E46E1E52048B7FF00BE538E /* ShowDetailViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6E46E1E42048B7FF00BE538E /* ShowDetailViewController.swift */; };
@@ -39,7 +38,6 @@
 		6E3590C720484A86007E15D5 /* APIManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = APIManager.swift; sourceTree = "<group>"; };
 		6E3590CA20484BBA007E15D5 /* Constants.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Constants.swift; sourceTree = "<group>"; };
 		6E3590CC2048546B007E15D5 /* Extensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Extensions.swift; sourceTree = "<group>"; };
-		6E46E1D520485A2500BE538E /* DBManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DBManager.swift; sourceTree = "<group>"; };
 		6E46E1DB2048B75C00BE538E /* EpisodeListTableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EpisodeListTableViewController.swift; sourceTree = "<group>"; };
 		6E46E1E22048B7F100BE538E /* EpisodeDetailViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EpisodeDetailViewController.swift; sourceTree = "<group>"; };
 		6E46E1E42048B7FF00BE538E /* ShowDetailViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ShowDetailViewController.swift; sourceTree = "<group>"; };
@@ -108,7 +106,6 @@
 			isa = PBXGroup;
 			children = (
 				6E3590C720484A86007E15D5 /* APIManager.swift */,
-				6E46E1D520485A2500BE538E /* DBManager.swift */,
 			);
 			path = Managers;
 			sourceTree = "<group>";
@@ -178,7 +175,6 @@
 				6E3590A720476055007E15D5 /* Frameworks */,
 				6E3590A820476055007E15D5 /* Resources */,
 				116FBD34F24806343BF0FF77 /* [CP] Embed Pods Frameworks */,
-				9E5DD3B3ECD38A632B324F3A /* [CP] Copy Pods Resources */,
 			);
 			buildRules = (
 			);
@@ -243,7 +239,7 @@
 			files = (
 			);
 			inputPaths = (
-				"${SRCROOT}/Pods/Target Support Files/Pods-TV List/Pods-TV List-frameworks.sh",
+				"${PODS_ROOT}/Target Support Files/Pods-TV List/Pods-TV List-frameworks.sh",
 				"${BUILT_PRODUCTS_DIR}/Alamofire/Alamofire.framework",
 				"${BUILT_PRODUCTS_DIR}/AlamofireImage/AlamofireImage.framework",
 				"${BUILT_PRODUCTS_DIR}/AlamofireObjectMapper/AlamofireObjectMapper.framework",
@@ -266,7 +262,7 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
-			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-TV List/Pods-TV List-frameworks.sh\"\n";
+			shellScript = "\"${PODS_ROOT}/Target Support Files/Pods-TV List/Pods-TV List-frameworks.sh\"\n";
 			showEnvVarsInLog = 0;
 		};
 		2582FFD16C160ECAC663E350 /* [CP] Check Pods Manifest.lock */ = {
@@ -287,21 +283,6 @@
 			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
 			showEnvVarsInLog = 0;
 		};
-		9E5DD3B3ECD38A632B324F3A /* [CP] Copy Pods Resources */ = {
-			isa = PBXShellScriptBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-			);
-			inputPaths = (
-			);
-			name = "[CP] Copy Pods Resources";
-			outputPaths = (
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-			shellPath = /bin/sh;
-			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-TV List/Pods-TV List-resources.sh\"\n";
-			showEnvVarsInLog = 0;
-		};
 /* End PBXShellScriptBuildPhase section */
 
 /* Begin PBXSourcesBuildPhase section */
@@ -313,7 +294,6 @@
 				6E46E1DC2048B75C00BE538E /* EpisodeListTableViewController.swift in Sources */,
 				6E3590C52047633E007E15D5 /* Network.swift in Sources */,
 				6E3590CD2048546B007E15D5 /* Extensions.swift in Sources */,
-				6E46E1D620485A2500BE538E /* DBManager.swift in Sources */,
 				6E46E1E32048B7F100BE538E /* EpisodeDetailViewController.swift in Sources */,
 				6E3590C12047629B007E15D5 /* Episode.swift in Sources */,
 				6E3590CB20484BBA007E15D5 /* Constants.swift in Sources */,
@@ -394,7 +374,7 @@
 				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
 				GCC_WARN_UNUSED_FUNCTION = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
-				IPHONEOS_DEPLOYMENT_TARGET = 11.2;
+				IPHONEOS_DEPLOYMENT_TARGET = 11.0;
 				MTL_ENABLE_DEBUG_INFO = YES;
 				ONLY_ACTIVE_ARCH = YES;
 				SDKROOT = iphoneos;
@@ -445,7 +425,7 @@
 				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
 				GCC_WARN_UNUSED_FUNCTION = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
-				IPHONEOS_DEPLOYMENT_TARGET = 11.2;
+				IPHONEOS_DEPLOYMENT_TARGET = 11.0;
 				MTL_ENABLE_DEBUG_INFO = NO;
 				SDKROOT = iphoneos;
 				SWIFT_OPTIMIZATION_LEVEL = "-Owholemodule";
