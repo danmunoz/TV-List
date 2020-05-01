@@ -12,7 +12,7 @@ import ObjectMapper
 import ObjectMapper_Realm
 import ObjectMapperAdditions
 
-//MARK: - Show Class
+// MARK: - Show Class
 class Show: Object, Mappable{
     @objc dynamic var id: Int = 0
     @objc dynamic var urlString: String?

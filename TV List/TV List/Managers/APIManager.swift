@@ -10,7 +10,12 @@ import Foundation
 import Alamofire
 import AlamofireObjectMapper
 
+enum NetworkError: Error {
+    case badURL
+}
+
 class APIManager {
+
     static func getShow(showId: String, success:@escaping (_ show: Show?)->(), failure:@escaping (_ error: Error?)->()) {
         Alamofire.request(Constants.API.Show(showId: showId)).responseObject { (response: DataResponse<Show>) in
             if let error = response.error {

@@ -14,7 +14,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
     var window: UIWindow?
 
 
-    func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplicationLaunchOptionsKey: Any]?) -> Bool {
+    func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplication.LaunchOptionsKey: Any]?) -> Bool {
         setupAppearance()
         return true
     }
@@ -37,11 +37,11 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
     fileprivate func setupAppearance() {
         let navigationBarAppearace = UINavigationBar.appearance()
         if #available(iOS 11.0, *) {
-            navigationBarAppearace.largeTitleTextAttributes = [NSAttributedStringKey.foregroundColor: UIColor.white]
+            navigationBarAppearace.largeTitleTextAttributes = [NSAttributedString.Key.foregroundColor: UIColor.white]
         }
         navigationBarAppearace.tintColor = UIColor.white
         navigationBarAppearace.barTintColor = UIColor(hexString: "1C1C1C")
-        navigationBarAppearace.titleTextAttributes = [NSAttributedStringKey.foregroundColor: UIColor.white]
+        navigationBarAppearace.titleTextAttributes = [NSAttributedString.Key.foregroundColor: UIColor.white]
         navigationBarAppearace.isTranslucent = false
     }
 

@@ -15,7 +15,7 @@ final class EpisodeListTableViewController: UITableViewController {
 
     override func viewDidLoad() {
         super.viewDidLoad()
-        self.tableView.rowHeight = UITableViewAutomaticDimension
+        self.tableView.rowHeight = UITableView.automaticDimension
         self.tableView.estimatedRowHeight = 150
         self.fetchEpisodes()
         self.setupUI()
@@ -23,9 +23,9 @@ final class EpisodeListTableViewController: UITableViewController {
         let string = "Pull to refresh"
         let attributtedText = NSMutableAttributedString.init(string: string)
         let range = (string as NSString).range(of: string)
-        attributtedText.addAttribute(NSAttributedStringKey.foregroundColor, value: UIColor.white , range: range)
+        attributtedText.addAttribute(NSAttributedString.Key.foregroundColor, value: UIColor.white , range: range)
         self.refreshControl?.attributedTitle = attributtedText
-        self.refreshControl?.addTarget(self, action: #selector(self.handleRefresh), for: UIControlEvents.valueChanged)
+        self.refreshControl?.addTarget(self, action: #selector(self.handleRefresh), for: UIControl.Event.valueChanged)
         
     }
 
