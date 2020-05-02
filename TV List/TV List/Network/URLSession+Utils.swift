@@ -8,29 +8,29 @@
 
 import Foundation
 
+typealias Handler = (Swift.Result<Data, NetworkError>) -> Void
 extension URLSession {
-    func dataTask(with url: URL, result: @escaping (Swift.Result<(URLResponse, Data), Error>) -> Void) -> URLSessionDataTask {
-        return self.dataTask(with: url) { (data, response, error) in
+
+    @discardableResult
+    func dataTask(with url: URL, then handler: @escaping Handler) -> URLSessionDataTask {
+        let task = self.dataTask(with: url) { (data, response, error) in
             if let error = error {
-                result(.failure(error))
+                handler(.failure(.generic(description: error.localizedDescription)))
                 return
             }
-
-            guard
-                let response = response,
-                let data = data
-                else {
-                    let error = NSError(domain: "error", code: 0, userInfo: nil)
-                    result(.failure(error))
-                    return
+            if response == nil {
+                handler(.failure(.noResponse))
+                return
             }
-            result(.success((response, data)))
+            guard  let data = data else {
+                handler(.failure(.noData))
+                return
+            }
+            handler(.success(data))
         }
+        task.resume()
+        return task
     }
-}
-
-extension URLSession {
-    typealias Handler = (Swift.Result<Data, NetworkError>) -> Void
 
     @discardableResult
     func request(endpoint: Endpoint, then handler: @escaping Handler) -> URLSessionDataTask {

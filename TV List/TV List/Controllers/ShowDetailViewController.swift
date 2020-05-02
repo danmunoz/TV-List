@@ -40,5 +40,4 @@ final class ShowDetailViewController: UIViewController {
         }
         self.showImageView.af_setImage(withURL: url, placeholderImage: self.imagePlaceholder, filter: nil, progress: nil, progressQueue: DispatchQueue.main, imageTransition: UIImageView.ImageTransition.crossDissolve(1), runImageTransitionIfCached: false, completion: nil)
     }
-
 }

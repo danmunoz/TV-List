@@ -32,6 +32,11 @@ class EpisodeTableViewCell: UITableViewCell {
     func update(with episode: Episode) {
         self.showNameLabel.text = episode.show?.name
         self.episodeNameLabel.text = episode.name
-        self.episodeImageView.af_setImage(withURL: URL(string: (episode.show?.image?.medium)!)!)
+        guard
+            let urlString = episode.show?.image?.medium,
+            let url = URL(string: urlString) else {
+            return
+        }
+        self.episodeImageView.af_setImage(withURL: url)
     }
 }
