@@ -30,31 +30,31 @@ final class EpisodeListTableViewController: UITableViewController {
     }
 
     // MARK: - Functions
-    
+
     @objc func handleRefresh() {
         self.fetchEpisodes()
         refreshControl?.endRefreshing()
     }
-    
-    fileprivate func fetchEpisodes() {
-        APIManager.getSchedule(success: { (episodes) in
-            if let episodes = episodes {
+
+    private func fetchEpisodes() {
+        APIManager.getSchedule { [weak self] result in
+            guard let self = self else { return }
+            switch result {
+            case .success(let episodes):
                 self.episodesArray = episodes
-                self.tableView.reloadData()
-            }
-        }) { (error) in
-            if let error = error {
+                DispatchQueue.main.async {
+                    self.tableView.reloadData()
+                }
+            case .failure(let error):
                 print("Error fetching schedule: \(error)")
             }
         }
     }
     
-    fileprivate func setupUI() {
+    private func setupUI() {
         title = "Schedule"
-        if #available(iOS 11.0, *) {
-            self.navigationController?.navigationBar.prefersLargeTitles = true
-            navigationItem.hidesSearchBarWhenScrolling = true
-        }
+        self.navigationController?.navigationBar.prefersLargeTitles = true
+        navigationItem.hidesSearchBarWhenScrolling = true
     }
 
     // MARK: - Table view data source
@@ -63,12 +63,13 @@ final class EpisodeListTableViewController: UITableViewController {
         return self.episodesArray.count
     }
 
-    
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        let cell = tableView.dequeueReusableCell(withIdentifier: "EpisodeCell", for: indexPath) as! EpisodeTableViewCell
+        guard let cell = tableView.dequeueReusableCell(withIdentifier: "EpisodeCell", for: indexPath) as? EpisodeTableViewCell else {
+            assertionFailure("EpisodeTableViewCell should not be nil")
+            return UITableViewCell()
+        }
         let episode = self.episodesArray[indexPath.row]
-        cell.episode = episode
-        cell.setupUI()
+        cell.update(with: episode)
         return cell
     }
     
@@ -82,10 +83,10 @@ final class EpisodeListTableViewController: UITableViewController {
 
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         if segue.identifier == "EpisodeDetailSegue" {
-            let vc = segue.destination as! EpisodeDetailViewController
+            guard let vc = segue.destination as? EpisodeDetailViewController else {
+                return
+            }
             vc.episode = self.selectedEpisode
         }
     }
-    
-
 }

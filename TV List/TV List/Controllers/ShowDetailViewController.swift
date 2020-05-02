@@ -12,28 +12,33 @@ final class ShowDetailViewController: UIViewController {
     
     var show: Show?
     var imagePlaceholder: UIImage?
-    @IBOutlet weak var showNameLabel: UILabel!
-    @IBOutlet weak var showImageView: UIImageView!
-    @IBOutlet weak var showSummaryLabel: UILabel!
-    @IBOutlet weak var showDaysLabel: UILabel!
-    @IBOutlet weak var showPremiereLabel: UILabel!
-    @IBOutlet weak var showTypeLabel: UILabel!
+    @IBOutlet private weak var showNameLabel: UILabel!
+    @IBOutlet private weak var showImageView: UIImageView!
+    @IBOutlet private weak var showSummaryLabel: UILabel!
+    @IBOutlet private weak var showDaysLabel: UILabel!
+    @IBOutlet private weak var showPremiereLabel: UILabel!
+    @IBOutlet private weak var showTypeLabel: UILabel!
     
     //MARK: - View Controller Lifecycle
     override func viewDidLoad() {
         super.viewDidLoad()
-        setupUI()
+        self.setupUI()
     }
 
     //MARK: - Functions
     private func setupUI() {
         self.title = "Show Detail"
         self.showNameLabel.text = self.show?.name
-        self.showImageView.af_setImage(withURL: URL(string: (self.show?.image?.original)!)!, placeholderImage: self.imagePlaceholder, filter: nil, progress: nil, progressQueue: DispatchQueue.main, imageTransition: UIImageView.ImageTransition.crossDissolve(1), runImageTransitionIfCached: false, completion: nil)
         self.showSummaryLabel.text = self.show?.summary?.htmlToString
         self.showTypeLabel.text = self.show?.type
-        self.showPremiereLabel.text = self.show?.premiered?.getString(format: "MM/dd/yyyy")
-        self.showDaysLabel.text = self.show?.schedule?.days.joined(separator: ", ")
+        self.showPremiereLabel.text = self.show?.premiered
+        self.showDaysLabel.text = self.show?.schedule?.days?.joined(separator: ", ")
+        guard
+            let originalURLString = self.show?.image?.original,
+            let url = URL(string: originalURLString) else {
+                return
+        }
+        self.showImageView.af_setImage(withURL: url, placeholderImage: self.imagePlaceholder, filter: nil, progress: nil, progressQueue: DispatchQueue.main, imageTransition: UIImageView.ImageTransition.crossDissolve(1), runImageTransitionIfCached: false, completion: nil)
     }
 
 }

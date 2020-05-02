@@ -7,13 +7,14 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		6E1C2146245D7E1B003A11BF /* Endpoint.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6E1C2145245D7E1B003A11BF /* Endpoint.swift */; };
+		6E1C2148245D7E3C003A11BF /* URLSession+Utils.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6E1C2147245D7E3C003A11BF /* URLSession+Utils.swift */; };
 		6E3590AE20476055007E15D5 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6E3590AD20476055007E15D5 /* AppDelegate.swift */; };
 		6E3590B320476055007E15D5 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 6E3590B120476055007E15D5 /* Main.storyboard */; };
 		6E3590B520476055007E15D5 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 6E3590B420476055007E15D5 /* Assets.xcassets */; };
 		6E3590B820476055007E15D5 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 6E3590B620476055007E15D5 /* LaunchScreen.storyboard */; };
 		6E3590C12047629B007E15D5 /* Episode.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6E3590C02047629B007E15D5 /* Episode.swift */; };
 		6E3590C3204762A7007E15D5 /* Show.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6E3590C2204762A7007E15D5 /* Show.swift */; };
-		6E3590C52047633E007E15D5 /* Network.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6E3590C42047633E007E15D5 /* Network.swift */; };
 		6E3590C820484A86007E15D5 /* APIManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6E3590C720484A86007E15D5 /* APIManager.swift */; };
 		6E3590CB20484BBA007E15D5 /* Constants.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6E3590CA20484BBA007E15D5 /* Constants.swift */; };
 		6E3590CD2048546B007E15D5 /* Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6E3590CC2048546B007E15D5 /* Extensions.swift */; };
@@ -26,6 +27,8 @@
 
 /* Begin PBXFileReference section */
 		2BAC51C2AB00DF0A2E3E722C /* Pods_TV_List.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_TV_List.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		6E1C2145245D7E1B003A11BF /* Endpoint.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Endpoint.swift; sourceTree = "<group>"; };
+		6E1C2147245D7E3C003A11BF /* URLSession+Utils.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "URLSession+Utils.swift"; sourceTree = "<group>"; };
 		6E3590AA20476055007E15D5 /* TV List.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "TV List.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		6E3590AD20476055007E15D5 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		6E3590B220476055007E15D5 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
@@ -34,7 +37,6 @@
 		6E3590B920476055007E15D5 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		6E3590C02047629B007E15D5 /* Episode.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Episode.swift; sourceTree = "<group>"; };
 		6E3590C2204762A7007E15D5 /* Show.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Show.swift; sourceTree = "<group>"; };
-		6E3590C42047633E007E15D5 /* Network.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Network.swift; sourceTree = "<group>"; };
 		6E3590C720484A86007E15D5 /* APIManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = APIManager.swift; sourceTree = "<group>"; };
 		6E3590CA20484BBA007E15D5 /* Constants.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Constants.swift; sourceTree = "<group>"; };
 		6E3590CC2048546B007E15D5 /* Extensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Extensions.swift; sourceTree = "<group>"; };
@@ -82,7 +84,7 @@
 				6E46E1D72048B6C900BE538E /* Views */,
 				6E46E1D82048B6D000BE538E /* Controllers */,
 				6E3590C920484BAF007E15D5 /* Utils */,
-				6E3590C620484A73007E15D5 /* Managers */,
+				6E3590C620484A73007E15D5 /* Network */,
 				6E3590BF204761A0007E15D5 /* Models */,
 				6E3590AD20476055007E15D5 /* AppDelegate.swift */,
 				6E3590B420476055007E15D5 /* Assets.xcassets */,
@@ -96,18 +98,19 @@
 			isa = PBXGroup;
 			children = (
 				6E3590C2204762A7007E15D5 /* Show.swift */,
-				6E3590C42047633E007E15D5 /* Network.swift */,
 				6E3590C02047629B007E15D5 /* Episode.swift */,
 			);
 			path = Models;
 			sourceTree = "<group>";
 		};
-		6E3590C620484A73007E15D5 /* Managers */ = {
+		6E3590C620484A73007E15D5 /* Network */ = {
 			isa = PBXGroup;
 			children = (
 				6E3590C720484A86007E15D5 /* APIManager.swift */,
+				6E1C2145245D7E1B003A11BF /* Endpoint.swift */,
+				6E1C2147245D7E3C003A11BF /* URLSession+Utils.swift */,
 			);
-			path = Managers;
+			path = Network;
 			sourceTree = "<group>";
 		};
 		6E3590C920484BAF007E15D5 /* Utils */ = {
@@ -243,23 +246,11 @@
 				"${PODS_ROOT}/Target Support Files/Pods-TV List/Pods-TV List-frameworks.sh",
 				"${BUILT_PRODUCTS_DIR}/Alamofire/Alamofire.framework",
 				"${BUILT_PRODUCTS_DIR}/AlamofireImage/AlamofireImage.framework",
-				"${BUILT_PRODUCTS_DIR}/AlamofireObjectMapper/AlamofireObjectMapper.framework",
-				"${BUILT_PRODUCTS_DIR}/ObjectMapper/ObjectMapper.framework",
-				"${BUILT_PRODUCTS_DIR}/ObjectMapper+Realm/ObjectMapper_Realm.framework",
-				"${BUILT_PRODUCTS_DIR}/ObjectMapperAdditions/ObjectMapperAdditions.framework",
-				"${BUILT_PRODUCTS_DIR}/Realm/Realm.framework",
-				"${BUILT_PRODUCTS_DIR}/RealmSwift/RealmSwift.framework",
 			);
 			name = "[CP] Embed Pods Frameworks";
 			outputPaths = (
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/Alamofire.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/AlamofireImage.framework",
-				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/AlamofireObjectMapper.framework",
-				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/ObjectMapper.framework",
-				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/ObjectMapper_Realm.framework",
-				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/ObjectMapperAdditions.framework",
-				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/Realm.framework",
-				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/RealmSwift.framework",
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
@@ -293,14 +284,15 @@
 			files = (
 				6E3590C820484A86007E15D5 /* APIManager.swift in Sources */,
 				6E46E1DC2048B75C00BE538E /* EpisodeListTableViewController.swift in Sources */,
-				6E3590C52047633E007E15D5 /* Network.swift in Sources */,
 				6E3590CD2048546B007E15D5 /* Extensions.swift in Sources */,
 				6E46E1E32048B7F100BE538E /* EpisodeDetailViewController.swift in Sources */,
 				6E3590C12047629B007E15D5 /* Episode.swift in Sources */,
 				6E3590CB20484BBA007E15D5 /* Constants.swift in Sources */,
 				6E3590C3204762A7007E15D5 /* Show.swift in Sources */,
 				6E46E1E72048C77A00BE538E /* EpisodeTableViewCell.swift in Sources */,
+				6E1C2148245D7E3C003A11BF /* URLSession+Utils.swift in Sources */,
 				6E3590AE20476055007E15D5 /* AppDelegate.swift in Sources */,
+				6E1C2146245D7E1B003A11BF /* Endpoint.swift in Sources */,
 				6E46E1E52048B7FF00BE538E /* ShowDetailViewController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

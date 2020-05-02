@@ -11,15 +11,12 @@ import AlamofireImage
 
 class EpisodeTableViewCell: UITableViewCell {
     
-    var episode: Episode?
-
     @IBOutlet weak var episodeNameLabel: UILabel!
     @IBOutlet weak var showNameLabel: UILabel!
     @IBOutlet weak var episodeImageView: UIImageView!
     
     override func awakeFromNib() {
         super.awakeFromNib()
-        setupUI()
     }
     
     override func prepareForReuse() {
@@ -28,17 +25,13 @@ class EpisodeTableViewCell: UITableViewCell {
         self.episodeImageView.image = nil
     }
     
-    func setupUI() {
-        self.showNameLabel.text = self.episode?.show?.name
-        self.episodeNameLabel.text = self.episode?.name
-        guard let episode = self.episode else {
-            return
-        }
-        self.episodeImageView.af_setImage(withURL: URL(string: (episode.show?.image?.medium)!)!)
-    }
-
     override func setSelected(_ selected: Bool, animated: Bool) {
         super.setSelected(selected, animated: animated)
     }
 
+    func update(with episode: Episode) {
+        self.showNameLabel.text = episode.show?.name
+        self.episodeNameLabel.text = episode.name
+        self.episodeImageView.af_setImage(withURL: URL(string: (episode.show?.image?.medium)!)!)
+    }
 }
